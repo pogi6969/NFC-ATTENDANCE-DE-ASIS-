@@ -83,7 +83,19 @@ Forgot password: press **New code** and **Text app invite** again; activating wi
 
 Create a reader in **Dashboard → Gate readers → Add reader**. You get a pairing link and a reader key. Mode can be **Auto** (IN then OUT), **Entrance only** or **Exit only** — use the last two when there are separate entry and exit gates.
 
-### Android phone or tablet (built-in NFC)
+### Phone only: the NFC Gate Android app (recommended)
+
+One Android phone with NFC is all the gate needs; students tap their NFC-tagged ID on the back of the phone.
+
+1. On the gate phone, download **nfc-gate.apk** from the repository's **Releases → NFC Gate app (Android)** and install it (allow "Install unknown apps" when asked).
+2. In the dashboard, **Gate readers → Add reader**, copy the pairing link, paste it into the app and press **Pair this phone**.
+3. Turn on NFC in the phone's settings if the app asks, mount the phone at the gate and plug in the charger.
+
+The app reads the tag's built-in serial number, so nothing has to be written to the IDs. It works with NTAG213/215/216, MIFARE Ultralight/DESFire and ISO 15693 tags (MIFARE Classic works on phones with an NXP NFC chip). The screen stays on, turns green for IN and orange for OUT with a beep, and taps made without internet are saved and sent later. Hold the top bar for options (reload, unpair). Use Android **App pinning** to keep students from leaving the app.
+
+The source is in `android/`; GitHub Actions builds the APK on every change (`.github/workflows/android-gate-app.yml`). To build it yourself, open `android/` in Android Studio.
+
+### Android phone or tablet in Chrome (no install)
 
 Open the pairing link in **Chrome on Android**, tap **Start NFC** once and allow NFC. Leave the screen on the gate; it stays awake, beeps, and shows the student's name with a green (IN) or orange (OUT) screen. Add it to the home screen to run it full screen.
 
