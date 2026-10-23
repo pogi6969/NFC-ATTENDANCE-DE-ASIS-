@@ -1,0 +1,37 @@
+# One-click cloud deploy on Render (render.com): New -> Blueprint -> pick this repository.
+# The database lives on the attached disk so records survive restarts and updates.
+services:
+  - type: web
+    name: nfc-attendance
+    runtime: docker
+    plan: starter
+    healthCheckPath: /healthz
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DATA_DIR
+        value: /data
+      - key: TRUST_PROXY
+        value: "1"
+      - key: SCHOOL_TIMEZONE
+        value: Asia/Manila
+      - key: DEFAULT_COUNTRY_CODE
+        value: "63"
+      - key: APP_SECRET
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: PUBLIC_URL
+        sync: false
+      - key: SMS_PROVIDER
+        value: console
+      - key: SEMAPHORE_API_KEY
+        sync: false
+      - key: SEMAPHORE_SENDER_NAME
+        sync: false
+      - key: VAPID_SUBJECT
+        value: mailto:admin@example.com
