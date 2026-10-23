@@ -1,0 +1,20 @@
+{
+  "name": "nfc-attendance-de-asis",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NFC campus attendance: students tap in and out at the gate, parents get a text or app notification, and every entry and exit is saved in the cloud database.",
+  "main": "server/index.js",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server/index.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch server/index.js",
+    "seed": "node --disable-warning=ExperimentalWarning server/seed.js",
+    "test": "node --disable-warning=ExperimentalWarning --test"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "web-push": "^3.6.7"
+  }
+}
