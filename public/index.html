@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NFC Attendance</title>
+<meta name="description" content="Students tap their NFC ID at the campus gate. Parents get a text or app notification, and every entry and exit is saved in the school's cloud database.">
+<meta name="theme-color" content="#1747A6">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="module" src="/assets/site.js"></script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="/"><img src="/icons/logo.svg" alt=""><span><span data-school>De Asis</span> NFC Attendance</span></a>
+  <nav class="row">
+    <a class="btn btn-small" href="/app/">Open the app</a>
+    <a class="btn btn-small btn-primary" href="/admin/">School sign in</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <h1>Tap in. <em>Parents know.</em></h1>
+      <p class="lead">Students tap their NFC ID card at the campus gate. The time they enter and leave is saved in the cloud, and their parents get a text message or app notification right away.</p>
+      <div class="row">
+        <a class="btn btn-primary" href="/app/#parent">I'm a parent</a>
+        <a class="btn" href="/app/#gate">Set up a gate reader</a>
+      </div>
+    </div>
+    <div class="phone-mock" aria-label="Example messages a parent receives">
+      <p class="small muted">Messages · <span data-school>De Asis</span></p>
+      <div class="sms"><span data-school>De Asis</span>: Juan Dela Cruz entered the campus at 7:12 AM (Main Gate).<small>7:12 AM</small></div>
+      <div class="sms"><span data-school>De Asis</span>: Juan Dela Cruz left the campus at 4:05 PM (Main Gate).<small>4:05 PM</small></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="card"><h3>Tap at the gate</h3><p class="muted">The student holds their NFC ID card to the reader when entering or leaving. The first tap of the day is IN, the next is OUT.</p></div>
+      <div class="card"><h3>Saved in the cloud</h3><p class="muted">The tap goes to the school's database with the exact time and gate. Double taps within a minute are ignored.</p></div>
+      <div class="card"><h3>Parents are notified</h3><p class="muted">Each parent on file gets a text message, and parents with the app get a phone notification too.</p></div>
+      <div class="card"><h3>School sees everything</h3><p class="muted">The dashboard shows who is on campus now, late and absent students, daily reports and spreadsheet exports.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Open</h2>
+    <div class="doors">
+      <a class="card door" href="/app/#parent"><h3>Parent app</h3><p class="muted">Activate with the code the school texted you. See when your child entered and left, and turn on notifications.</p></a>
+      <a class="card door" href="/app/#gate"><h3>Gate reader</h3><p class="muted">Turn an Android phone or tablet into the NFC reader at the gate, or connect a USB card reader to a computer.</p></a>
+      <a class="card door" href="/admin/"><h3>School dashboard</h3><p class="muted">Students and cards, parents, live attendance, reports, gate readers, text messages and settings.</p></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Works with</h2>
+    <div class="steps plain">
+      <div class="card"><h3>Android phone</h3><p class="muted">Chrome on Android reads NFC cards directly. Open the app, choose Gate reader and pair it.</p></div>
+      <div class="card"><h3>USB NFC reader</h3><p class="muted">Readers that type the card number like a keyboard work in the gate screen. ACR122U readers use the included bridge.</p></div>
+      <div class="card"><h3>ESP32 + RC522</h3><p class="muted">A low-cost wall reader with a buzzer and lights. The firmware is in the <span class="mono">firmware</span> folder.</p></div>
+      <div class="card"><h3>Any phone for parents</h3><p class="muted">Install the app on Android or iPhone. Parents without the app still get text messages.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <p><span data-school>De Asis</span> NFC Attendance</p>
+</footer>
+</body>
+</html>
