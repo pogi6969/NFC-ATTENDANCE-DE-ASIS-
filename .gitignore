@@ -7,3 +7,9 @@ data/
 bridge/queue.json
 __pycache__/
 .DS_Store
+
+# Android build output
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties

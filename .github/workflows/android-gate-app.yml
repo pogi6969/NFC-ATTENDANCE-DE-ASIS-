@@ -1,0 +1,49 @@
+name: Build NFC Gate app
+
+on:
+  push:
+    paths:
+      - 'android/**'
+      - '.github/workflows/android-gate-app.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Build APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleDebug
+          cp app/build/outputs/apk/debug/app-debug.apk ../nfc-gate.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nfc-gate-apk
+          path: nfc-gate.apk
+
+      - name: Publish download
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: gate-app-latest
+          name: NFC Gate app (Android)
+          prerelease: true
+          target_commitish: ${{ github.sha }}
+          files: nfc-gate.apk
+          body: |
+            Android app that turns a phone into the NFC reader at the campus gate.
+            Download nfc-gate.apk on the gate phone, open it and allow "Install unknown apps".
+            Then paste the pairing link from the dashboard (Gate readers → Add reader).
