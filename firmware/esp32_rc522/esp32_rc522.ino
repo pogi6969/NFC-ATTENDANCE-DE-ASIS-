@@ -19,12 +19,9 @@
 #include <time.h>
 
 // ---------- Change these ----------
-const char* WIFI_SSID = "School-WiFi";
-const char* WIFI_PASSWORD = "wifi-password";
-// Your server address, no slash at the end, e.g. https://attendance.yourschool.edu.ph
-const char* SERVER_URL = "https://your-server.example.com";
-// Dashboard -> Gate readers -> Add reader -> reader key
-const char* DEVICE_KEY = "dev_paste_the_reader_key_here";
+// Wi-Fi, server address and reader key live in secrets.h (not uploaded to GitHub).
+// Copy secrets.example.h to secrets.h and fill it in.
+#include "secrets.h"
 // ----------------------------------
 
 const int PIN_SS = 5;

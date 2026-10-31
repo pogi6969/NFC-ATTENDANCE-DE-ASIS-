@@ -111,7 +111,7 @@ Open the pairing link in **Chrome on Android**, tap **Start NFC** once and allow
 
 ### ESP32 + RC522 wall reader
 
-`firmware/esp32_rc522/esp32_rc522.ino` — a cheap standalone reader with a buzzer and green/yellow/red lights. Wiring is at the top of the file. Install the **MFRC522** library in the Arduino IDE, fill in Wi-Fi, `SERVER_URL` and `DEVICE_KEY`, and upload to an "ESP32 Dev Module". It keeps up to 100 taps with their time while Wi-Fi is down.
+`firmware/esp32_rc522/esp32_rc522.ino` — a cheap standalone reader with a buzzer and green/yellow/red lights. Wiring is at the top of the file. Install the **MFRC522** library in the Arduino IDE, copy `secrets.example.h` to `secrets.h` in the same folder and fill in Wi-Fi, `SERVER_URL` and `DEVICE_KEY` (`secrets.h` is git-ignored, so the key stays off GitHub), and upload to an "ESP32 Dev Module". It keeps up to 100 taps with their time while Wi-Fi is down.
 
 ## Registering cards
 
